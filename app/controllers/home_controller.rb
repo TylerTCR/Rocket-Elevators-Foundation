@@ -8,8 +8,9 @@ class HomeController < ApplicationController
 
   end
 
-  
-
+  def intervention
+    redirect_to root_path unless user_signed_in?
+  end
 
   def create
     @lead = Lead.new(lead_params)
