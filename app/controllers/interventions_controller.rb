@@ -1,6 +1,5 @@
 class InterventionsController < ApplicationController
   def intervention
-    # intervention = Intervention.new
 
   end
 
@@ -68,28 +67,25 @@ class InterventionsController < ApplicationController
 
 
   def create_intervention_ticket
-    puts "**********"
-    puts current_user
-    puts "**********"
     client = ZendeskAPI::Client.new do |config|
         config.url = ENV['ZENDESK_URL']
         config.username = ENV['ZENDESK_USERNAME']
         config.token = ENV['ZENDESK_TOKEN']
     end
-    # Change this...
     ZendeskAPI::Ticket.create!(client, 
         :subject => "Intervention from #{Customer.find(params['customer_list']).company_name}", 
         :comment => { 
             :value => "The company #{Customer.find(params['customer_list']).company_name} has an intervention.\n
-                Details:\nBuilding ID: #{params['building_id']} has a status of #{params['building_status']}\n 
-                Battery ID: #{params['battery_id']} has a status of #{params['battery_status']}\n. 
-                Column ID: #{params["column_id"]} has a status of #{params["column_status"]}\n. 
-                Elevator ID: #{params["elevator_id"]} has a status of #{params["elevator_status"]}.\n
-                This task has been assigned to #{params['first_name']} #{params['last_name']}."
+                Details:\n
+                Building ID: #{Building.find(params['building']).id}
+                Battery ID: #{Battery.find(params['battery']).id} has a status of #{Battery.find(params['battery']).status}. 
+                Column ID: #{Column.find(params["column"]).id} has a status of #{Column.find(params['column']).status}.
+                Elevator ID: #{Elevator.find(params["elevator"]).id} has a status of #{Elevator.find(params["elevator"]).status}.
+                This task has been assigned to #{Employee.find(params['employee_list']).first_name} #{Employee.find(params['employee_list']).last_name}."
         }, 
         :requester => { 
-            "name": "Tester", #{current_user.employee.first_name} #{current_user.employee.last_name}
-            # "email": "tcil112000@gmail.com",
+            "name": "#{current_user.employee.first_name} #{current_user.employee.last_name}", 
+            "email": "#{current_user.employee.email}",
         },
         :priority => "normal",
         :type => "problem",
