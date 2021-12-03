@@ -186,8 +186,45 @@ $(function() {
             });
         }
     }); // End COLUMN
-});
 
-function submit() {
-    
-}
+    // SUBMIT CLICKED
+    // $("#intervention-submit").click(function () {
+    //     // var author = ;
+    //     var customer = $("select#customer").val();
+    //     var building = $("select#building").val();
+    //     var battery = $("select#battery").val();
+    //     var column = $("select#column").val();
+    //     var elev = $("select#elevator").val();
+    //     var emp = $("select#employee").val();
+    //     // If there is at least a customer, building, battery, and employee is selected
+    //     if (customer != "" && building != "" && battery != "" && emp != "none") {
+    //         // If a column was picked
+    //         if (column != "") {
+    //             // If an elevator was picked
+    //             if (elev != "") {
+
+    //             } else { // no elevator picked, submit without an elevator value
+                    
+    //             }
+    //         } else { // no column picked, submit without a column and elevator value
+    //             $.ajax({
+    //                 type: "POST",
+    //                 dataType: "json",
+    //                 contentType: "application/json; charset=utf-8",
+    //                 url: '', // Where does this go exactly?
+    //                 data: "{'user_id':'" + author + "', 'customer_id':'" + customer + "', 'building_id':'" + building + "', 'battery_id':'" + battery + "', 'column_id':'" + null + "', 'elevator_id':'" + null + "', 'employee_id':'" + emp + "'}",
+    //                 error: function(XMLHttpRequest, errorTextStatus, error) {
+    //                     alert("Could not submit, encountered an error: " + errorTextStatus + " ;" + error);
+    //                 },
+    //                 success: function(data) {
+    //                     // Not too sure what would go here...
+    //                 }
+    //             })
+    //         }
+    //         // Allow submission and put into database
+    //         console.log(customer + ", " + building + ", and " + battery);
+    //     } else { // Do NOT allow submission
+    //         alert("At least one customer, building, battery AND employee MUST be selected to submit. Please check those fields before trying again.");
+    //     }
+    // }); // End SUBMIT CLICKED
+});

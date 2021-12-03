@@ -1,84 +1,85 @@
-<%# <%= form_with ("/getInterventions") do |f| %>
-<div class="container">
-    <br /> <br /> <br /> <br />
-    <h1>Intervention</h1>
+<form action="/intervention") method="post" %>
+    <div class="container">
+        <br /> <br /> <br /> <br />
+        <h1>Intervention</h1>
 
-    <fieldset>
-        <div class="row">
-            <div class="col-md-6" id="customer-list">
+        <fieldset>
+            <%# Customer Dropdown %>
+            <div class="row">
+                <div class="col-md-6" id="customer-list">
 
-                <label for="customer_list">Please select a customer.</label>
-                <select name="customer_list" id="customer">
-                    <option selected value="">--- Select ---</option>
-                    <%= Customer.all.each do |cust| %>
-                        <option value="<%= cust.id %>"><%= cust.company_name %></option>
-                    <% end %>
-                </select>
-                <hr />
+                    <label for="customer_list">Please select a customer.</label>
+                    <select name="customer_list" id="customer">
+                        <option selected value="">--- Select ---</option>
+                        <%= Customer.all.each do |cust| %>
+                            <option value="<%= cust.id %>"><%= cust.company_name %></option>
+                        <% end %>
+                    </select>
+                    
+                </div>
             </div>
-        </div>
 
-        <%# Buildings Dropdown %>
-        <div class="row">
-            <div class="col-md-6" id="building-list">
-                <label for="building">Please select a building.</label>
-                <%= select_tag "building", options_from_collection_for_select(Building.all, "id", "id"), prompt: "--- Select ---" %>
-                <hr />
+            <%# Buildings Dropdown %>
+            <div class="row">
+                <div class="col-md-6" id="building-list">
+                    <label for="building">Please select a building.</label>
+                    <%= select_tag "building", options_from_collection_for_select(Building.all, "id", "id"), prompt: "--- Select ---" %>
+                    <hr />
+                </div>
             </div>
-        </div>
 
-        <%# Batteries Dropdown %>
-        <div class="row">
-            <div class="col-md-6" id="battery-list">
+            <%# Batteries Dropdown %>
+            <div class="row">
+                <div class="col-md-6" id="battery-list">
 
-                <label for="battery">Please select a battery.</label>
-                <%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "--- Select ---" %>
-                <hr />
+                    <label for="battery">Please select a battery.</label>
+                    <%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "--- Select ---" %>
+                    <hr />
+                </div>
             </div>
-        </div>
 
-        <%# Columns Dropdown %>
-        <div class="row">
-            <div class="col-md-6" id="column-list">
-                <label for="column">Please select a column.</label>
-                <%= select_tag "column", options_from_collection_for_select(Column.all, "id", "id"), prompt: "None" %>
-                <hr />
+            <%# Columns Dropdown %>
+            <div class="row">
+                <div class="col-md-6" id="column-list">
+                    <label for="column">Please select a column.</label>
+                    <%= select_tag "column", options_from_collection_for_select(Column.all, "id", "id"), prompt: "None" %>
+                    <hr />
+                </div>
             </div>
-        </div>
 
-        <%# Elevators Dropdown %>
-        <div class="row">
-            <div class="col-md-6" id="elevator-list">
-                <label for="elevator">Please select an elevator.</label>
-                <%= select_tag "elevator", options_from_collection_for_select(Elevator.all, "id", "id"), prompt: "None" %>
-                <hr />
+            <%# Elevators Dropdown %>
+            <div class="row">
+                <div class="col-md-6" id="elevator-list">
+                    <label for="elevator">Please select an elevator.</label>
+                    <%= select_tag "elevator", options_from_collection_for_select(Elevator.all, "id", "id"), prompt: "None" %>
+                    <hr />
+                </div>
             </div>
-        </div>
 
-        <%# Employees Dropdown %>
-        <div class="row">
-            <div class="col-md-6" id="employee-list">
-                <label for="employee">Please select an employee.</label>
-                <select name="employee_list" id="employee">
-                    <option selected value="none">None</option>
-                    <%= Employee.all.each do |employee| %>
-                        <option value="<%= employee.id %>"><%= employee.first_name + " " + employee.last_name + " | " + employee.title %></option>
-                    <% end %>
-                </select>
-                <hr />
+            <%# Employees Dropdown %>
+            <div class="row">
+                <div class="col-md-6" id="employee-list">
+                    <label for="employee">Please select an employee.</label>
+                    <select name="employee_list" id="employee">
+                        <option selected value="none">None</option>
+                        <%= Employee.all.each do |employee| %>
+                            <option value="<%= employee.id %>"><%= employee.first_name + " " + employee.last_name + " | " + employee.title %></option>
+                        <% end %>
+                    </select>
+                    <hr />
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6" id="desc">
+            <div class="row">
+                <div class="col-md-6" id="desc">
 
-                <label for="description">Please describe the intervention.</label>
-                <%= text_field_tag :desc, "", class: 'form-control' ,:required => true%>
+                    <label for="description">Please describe the intervention.</label>
+                    <%= text_field_tag :desc, "", class: 'form-control' , :required => true%>
+                </div>
             </div>
-        </div>
-    </fieldset>
+        </fieldset>
 
-    <button class="btn btn-success btn-md" onclick="submit()">Submit</button>
-    <hr />
-</div>
-<%# <%= end %>
+        <input class="btn btn-success btn-md" type="submit" value="Submit" <%#id="intervention-submit"%>>
+        <hr />
+    </div>
+</form>

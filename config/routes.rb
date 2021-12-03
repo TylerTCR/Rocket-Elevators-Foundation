@@ -17,6 +17,8 @@ get "commercial" => "home#commercial"
 get "quote" => "home#quote"
 get "/intervention" => "home#intervention"
 post "getData" => "quote#getData"
+post "/intervention" => "interventions#create"
+post "/intervention" => "interventions#create_intervention_ticket"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
