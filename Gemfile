@@ -87,8 +87,8 @@ group :development do
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
-  gem ed25519 (>= 1.2, < 1.3)
-  gem bcrypt_pbkdf (>= 1.0, < 2.0)
+  ed25519 (>= 1.2, < 1.3)
+  bcrypt_pbkdf (>= 1.0, < 2.0)
 end
 
 group :test do
