@@ -70,8 +70,7 @@ gem "zendesk_api"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'ed25519', '>= 1.2', '< 1.3'
-gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -90,6 +89,8 @@ group :development do
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
   gem 'capistrano3-puma'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
