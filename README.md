@@ -1,11 +1,13 @@
 # README
 
 ## Project Description
-This week our task is to implement various APIs to add more features to our Rocket Elevator website.
+This week our task was to implement some of things we've gone over since the Genesis week, all on our own instead of in teams.
+We created a new form for interventions, added a table for said form in our own databases, used a Zendesk API to create a ticket for each submission,
+and made some changes to the REST API from the previous week to work with our new interventions table.
 
-#### Instructional Video
-This video gives a brief explanation of the process for using various APIs on our website.
-Link: <em>https://www.youtube.com/watch?v=y_WWfAmEDwc</em>
+### Instructional Video
+The following video gives a brief overview of everything I implented during the week.<br />
+<a href="https://youtu.be/5n7PS9SMAXw">Click here!</a>
 
 ### Back Office Admin Logins
 Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: password
@@ -22,48 +24,20 @@ Timothy Wever | Developer | timothy.wever@codeboxx.biz | password: password
 
 Krista Sheely | Developer | krista.sheely@codeboxx.biz | password: password 
 
-### Instructions
 
-First, you need a copy a database.yml file, which will specify your database information. Add this file to the config folder. A copy of the database.yml file is here https://github.com/dominhannguyen/database-yml
+### REST API Endpoint
+<ol>
+  <li>Retrieving a list of pending interventions</li>
+  Visit this site: https://tyler-rocket-elevator.azurewebsites.net/interventions
+  <li>Changing the status of an intervention to "InProgress"</li>
+  In Postman body: {"id": "1", "status": "InProgress"}<br />
+  <strong>Method:</strong> PUT
+  <li>Changing the status of an intervnetion to "Completed"</li>
+  In Postman body: {"id": "1", "status": "Completed"}<br />
+  <strong>Method:</strong> PUT
+</ol>
 
-Next, include a copy of application.yml file, this file should be placed inside the config folder, which specifies the API key.
-
-```
-
-# Add configuration values here, as shown below.
-#
-# pusher_app_id: "2954"
-# pusher_key: 7381a978f7dd7f9a1117
-# pusher_secret: abdc3b896a0ffb85d373
-# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
-# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
-#
-# production:
-#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
-#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-
-
-```
-
-
-
-Next, open your ubuntu terminal and run this command to install the dependencies:
-
-```bundle install```
-
-Third, run this command to set up your databases:
-
-```rails db:setup```
-
-Finally, run this command:
-
-```rails server ```
-
-You can now see the website at a web browser at localhost:3000
-
-
-### API implemented:
-
+### Gems we used
 - Google Maps: We used ``` gem 'geocoder' ``` m to convert the addresses to latitude and longitude
 - Twilio: We used gem ``` 'gem 'twilio-ruby', '~> 5.61.0' ``` to integrate twilio to our apps
 - Slack: We used gem ``` gem 'slack-notifier' ``` to integrate slack to our apps
@@ -76,7 +50,5 @@ You can now see the website at a web browser at localhost:3000
 ### Ruby / Rails version
 We used Ruby 2.6.6 and Ruby on Rails 5.2.6
 
-
-### Collaborators
-Team Lead: <strong>Matthew Dandurand</strong> <br />
-Team Members: <strong>Jacob Gomez</strong>, <strong>Do Minh An Nguyen</strong>, <strong>Arman Adibi</strong>, and <strong>Tyler Calderon</strong>
+### By
+<strong>Tyler Calderon</strong>
