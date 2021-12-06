@@ -1,18 +1,25 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class Devise::RegistrationsController < DeviseController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    build_resource
+    yield resource if block_given?
+    respond_with resource
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    build_resource(sign_up_params)
+
+    resource.save
+    yield resource if block_given?
+    set_flash_message!(:notice, :signed_up)
+    respond_with resource, location: after_sign_up_path_for(resource)
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,7 +45,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  # Build a devise resource passing in the session. Useful to move
+  # temporary session data to the newly created user.
+  def build_resource(hash = {})
+    self.resource = resource_class.new_with_session(hash, session)
+  end
+
+  # Signs in a user on sign up. You can overwrite this method in your own
+  # RegistrationsController.
+  def sign_up(resource_name, resource)
+    sign_in(resource_name, resource)
+  end
+
+  def sign_up_params
+    devise_parameter_sanitizer.sanitize(:sign_up)
+  end
+
+  # The path used after sign up.
+  def after_sign_up_path_for(resource)
+    after_sign_in_path_for(resource) if is_navigational_format?
+  end
+
+  def translation_scope
+    'devise.registrations'
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -48,11 +80,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
   # end
 
   # The path used after sign up for inactive accounts.

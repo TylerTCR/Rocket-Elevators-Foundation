@@ -10,7 +10,7 @@
                 <div class="col-md-6" id="customer-list">
 
                     <label for="customer_list">Please select a customer.</label>
-                    <select name="customer_list" id="customer">
+                    <select name="customer_list" id="customer" <%#required%>>
                         <option selected value="">--- Select ---</option>
                         <%= Customer.all.each do |cust| %>
                             <option value="<%= cust.id %>"><%= cust.company_name %></option>
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-6" id="building-list">
                     <label for="building">Please select a building.</label>
-                    <%= select_tag "building", options_from_collection_for_select(Building.all, "id", "id"), prompt: "--- Select ---" %>
+                    <%= select_tag "building", options_from_collection_for_select(Building.all, "id", "id"), prompt: "--- Select ---", :required => true %>
                     <hr />
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="col-md-6" id="battery-list">
 
                     <label for="battery">Please select a battery.</label>
-                    <%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "--- Select ---" %>
+                    <%= select_tag "battery", options_from_collection_for_select(Battery.all, "id", "id"), prompt: "--- Select ---", :required => true %>
                     <hr />
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-md-6" id="employee-list">
                     <label for="employee">Please select an employee.</label>
-                    <select name="employee_list" id="employee">
+                    <select name="employee_list" id="employee" required>
                         <option selected value="none">None</option>
                         <%= Employee.all.each do |employee| %>
                             <option value="<%= employee.id %>"><%= employee.first_name + " " + employee.last_name + " | " + employee.title %></option>
@@ -75,7 +75,7 @@
                 <div class="col-md-6" id="desc">
 
                     <label for="description">Please describe the intervention.</label>
-                    <%= text_field_tag :desc, "", class: 'form-control' , :required => true%>
+                    <%= text_field_tag :desc, "", class: 'form-control', :required => true%>
                 </div>
             </div>
         </fieldset>
