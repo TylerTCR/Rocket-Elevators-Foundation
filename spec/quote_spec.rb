@@ -4,7 +4,7 @@ RSpec.describe Quote, :type => :model do
     subject {
         Quote.new(
             company_name: "test",
-            email: "test",
+            email: "test@test",
             phone_number: "111",
             building_type: "residential",
             apartments: "1",
@@ -62,7 +62,7 @@ RSpec.describe Quote, :type => :model do
             expect(subject.business_hours).to eq(0.to_s).or be > 0.to_s
         end
         it "not valid if email does not contain @ sign" do
-            expect(subject.email).to_not include("@")
+            expect(subject.email).to include("@")
         end
     end
 end
