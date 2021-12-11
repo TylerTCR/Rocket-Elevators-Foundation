@@ -194,11 +194,15 @@ ActiveRecord::Schema.define(version: 2021_12_02_193555) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
   add_foreign_key "batteries", "buildings", on_update: :cascade, on_delete: :cascade
@@ -210,3 +214,12 @@ ActiveRecord::Schema.define(version: 2021_12_02_193555) do
   add_foreign_key "customers", "addresses", on_update: :cascade, on_delete: :cascade
   add_foreign_key "customers", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "elevators", "columns", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "employees", "users"
+  add_foreign_key "interventions", "batteries"
+  add_foreign_key "interventions", "buildings"
+  add_foreign_key "interventions", "columns"
+  add_foreign_key "interventions", "customers"
+  add_foreign_key "interventions", "elevators"
+  add_foreign_key "interventions", "employees"
+  add_foreign_key "interventions", "users"
+end

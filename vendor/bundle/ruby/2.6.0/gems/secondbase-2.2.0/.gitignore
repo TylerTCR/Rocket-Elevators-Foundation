@@ -1,0 +1,9 @@
+doc/
+yard/
+.yardoc/
+vendor/
+pkg/
+.bundle/
+Gemfile.lock
+*.gemfile.lock
+*.log

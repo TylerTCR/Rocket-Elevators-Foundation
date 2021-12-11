@@ -5,6 +5,7 @@ class Devise::SessionsController < DeviseController
   prepend_before_action :allow_params_authentication!, only: :create
   prepend_before_action :verify_signed_out_user, only: :destroy
   prepend_before_action(only: [:create, :destroy]) { request.env["devise.skip_timeout"] = true }
+  prepend_before_action :check_captcha, only: [:create]
 
   # GET /resource/sign_in
   def new
@@ -160,4 +161,16 @@ class Devise::SessionsController < DeviseController
       format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name) }
     end
   end
+
+  def check_captcha
+    return if !verify_recaptcha # verify_recaptcha(action: 'login') for v3
+
+    self.resource = resource_class.new sign_in_params
+
+    respond_with_navigational(resource) do
+      flash.discard(:recaptcha_error) # We need to discard flash to avoid showing it on the next page reload
+      # render :new
+    end
+  end
+  
 end

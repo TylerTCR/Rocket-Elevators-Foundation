@@ -67,6 +67,13 @@ gem "zendesk_api"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem "recaptcha"
+
+# TDD stuff
+gem 'rspec', '~> 3.0'
+gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+gem 'webmock'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

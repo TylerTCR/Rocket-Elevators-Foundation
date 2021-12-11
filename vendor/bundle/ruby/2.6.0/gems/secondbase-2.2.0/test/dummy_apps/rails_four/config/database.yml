@@ -1,0 +1,14 @@
+
+test:
+  adapter: sqlite3
+  database: ./db/base.sqlite3
+
+secondbase:
+
+  test:
+    adapter: mysql
+    database: 'secondbase_test'
+    username: root
+    password:
+    host: localhost
+

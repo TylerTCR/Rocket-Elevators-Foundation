@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users, controllers: { RegistrationsController: "registrations", SessionsController: "sessions" }
  
 
 get "get_buildings_by_customer/:customer_id", to: "interventions#get_buildings_by_customer"
@@ -15,6 +15,7 @@ post "/" , to: "home#create"
 get "residential" => "home#residential"
 get "commercial" => "home#commercial"
 get "quote" => "home#quote"
+get "video" => "home#video"
 get "/intervention" => "home#intervention"
 post "getData" => "quote#getData"
 post "/intervention" => "interventions#create"
