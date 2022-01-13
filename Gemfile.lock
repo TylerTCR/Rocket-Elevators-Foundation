@@ -5,6 +5,7 @@ GIT
   specs:
     faker (2.19.0)
       i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -405,8 +406,10 @@ GEM
       inflection
       mini_mime
       multipart-post (~> 2.0)
+
 PLATFORMS
   ruby
+
 DEPENDENCIES
   addressy
   aws-sdk-polly
@@ -460,7 +463,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   zendesk_api
+
 RUBY VERSION
    ruby 2.6.6p146
+
 BUNDLED WITH
-   1.17.3
+   2.2.30
