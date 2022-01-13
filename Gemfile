@@ -16,6 +16,7 @@ gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'slack-notifier'
 gem 'starwars'
+gem 'railties', '~> 5.2', '>= 5.2.6'
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'
