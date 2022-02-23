@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "164.90.142.98", user: "rails", roles: %w{app db web}
+server "164.90.142.98", user: "root", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
@@ -27,9 +27,9 @@ set :linked_files, %w{config/application.yml config/database.yml }
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-role :app, %w{rails@164.90.142.98}
-role :web, %w{rails@164.90.142.98}
-role :db,  %w{rails@164.90.142.98}
+role :app, %w{root@164.90.142.98}
+role :web, %w{root@164.90.142.98}
+role :db,  %w{root@164.90.142.98}
 
 
 
