@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
 			hideThumbs			= 200,
 			navigationType		= "bullet",
 			navigationArrows	= "solo",
-			navigationVOffset	= 10;
+			navigationVOffset	= "0%";
 
 		// Shadow
 		_shadow = jQuery(".fullwidthbanner").attr('data-shadow') || 0;

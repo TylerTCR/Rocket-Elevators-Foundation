@@ -2467,7 +2467,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 1px solid transparent;
+  border: 1px solid;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -2505,8 +2505,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #FAB702; /* #0069d9 */
+  border-color: #fab902;
 }
 
 .btn-primary:focus, .btn-primary.focus {
