@@ -7,11 +7,11 @@ We created a new form for interventions, added a table for said form in our own 
 and made some changes to the REST API from the previous week to work with our new interventions table.
 
 ### Instructional Video - Week 9
-The following video gives a brief overview of everything I implented during the week.<br />
+The following video gives a brief overview of everything I implemented during the week.<br />
 <a href="https://youtu.be/5n7PS9SMAXw">Click here!</a>
 
 ### Instructional Video - Week 10
-The following video gives a brief overview of everything I implented during the week.<br />
+The following video gives a brief overview of everything I implemented during the week.<br />
 <a href="https://youtu.be/vABbr4kFejU">Click here!</a>
 
 ### Security Document
